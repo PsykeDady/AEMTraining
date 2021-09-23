@@ -1,4 +1,4 @@
-
+<!--
 contenuto del Titolo:
 <br>
 
@@ -11,3 +11,36 @@ contenuto del Testo:
 <label style="color: red" >
     ${properties.text}
 </label><br>
+
+<div>Titolo pag corrente: ${currentPage.path}</div>
+<div>path pag corrente: ${currentPage.title}</div>
+
+<br>
+<ol data-sly-list="${currentPage.listChildren}">
+    <li>numero pag : ${itemList.count} Titolo della pag:${item.title}</li>
+
+</ol>
+
+<ol data-sly-repeat="${currentPage.listChildren}">
+    <li data-sly-test="${itemList.count == 1}">${item.title}</li>
+
+</ol>
+-->
+<div>
+    <label>
+        Titoli in lower case:
+        <br>
+        <label>${currentPage.titoloLower}</label>
+        <br>
+        <label>${currentPage.mexLower}</label>
+    </label>
+</div>
+<div class="cmp-helloworld__item" data-sly-use.modelMio="com.moveo.aem.training.core.models.HelloWorldAlfredoModel" data-sly-test="${modelMio.titoloUp}">
+<!--    <p class="cmp-helloworld__item-label">Model messaggio da stampare:</p>-->
+    <h1 style="color: chocolate" class="cmp-helloworld__item-output"data-cmp-hook-helloworld="model">Titolo in UP->   ${modelMio.titoloUp}</h1>
+</div>
+
+<div class="cmp-helloworld__item" data-sly-use.modelMio="com.moveo.aem.training.core.models.HelloWorldAlfredoModel" data-sly-test="${modelMio.mexUp}">
+    <!--    <p class="cmp-helloworld__item-label">Model messaggio da stampare:</p>-->
+    <h3 style="color: greenyellow" class="cmp-helloworld__item-output"data-cmp-hook-helloworld="model">Mex in UP-->   ${modelMio.mexUp}</h3>
+</div>
