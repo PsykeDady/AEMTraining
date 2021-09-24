@@ -59,14 +59,6 @@ public class HelloWorldAlfredoModel {
 
     @PostConstruct
     protected void init() {
-//        PageManager pageManager = resourceResolver.adaptTo(PageManager.class);
-//        String currentPagePath = Optional.ofNullable(pageManager)
-//                .map(pm -> pm.getContainingPage(currentResource))
-//                .map(Page::getPath).orElse("");
-
-//        titoloLower = "Mio esempio di testo che passa per java";
-//        testo = "Secondo testo inserito statico";
-
         // versione con Optional
         titoloUp = Optional.of(titoloLower).orElse("").toUpperCase();
 
@@ -74,15 +66,6 @@ public class HelloWorldAlfredoModel {
         mexUp =  mexLower==null ? "": mexLower.toUpperCase();
     }
 
-//    public String getMessage() {
-//        return messaggio;
-//    }
-//    public String getTitoloLower(){
-//        return titoloLower;
-//    }
-//    public String getMexLower(){
-//        return mexLower;
-//    }
 
     public String getTitoloUp(){
         return titoloUp;

@@ -17,10 +17,10 @@
                         fieldLabel="contenuto del Titolo"
                         name="./titoloLower"/>
                     <mexLower
-                            jcr:primaryType="nt:unstructured"
-                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                            fieldLabel="contenuto del mex"
-                            name="./mexLower"/>
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                        fieldLabel="contenuto del mex"
+                        name="./mexLower"/>
                 </items>
             </column>
         </items>

@@ -1,0 +1,1 @@
+console.log("funziona come le cose che devono funzionare");

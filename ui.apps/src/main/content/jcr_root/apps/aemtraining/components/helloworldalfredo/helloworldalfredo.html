@@ -26,6 +26,11 @@ contenuto del Testo:
 
 </ol>
 -->
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+	<sly data-sly-call="${clientlib.all @ categories = 'aemtraning-helloworldalfredo'}"> ${modelMio.titoloUp} </sly>
+
+</sly>
+
 <div>
     <label>
         Titoli in lower case:
@@ -35,12 +40,13 @@ contenuto del Testo:
         <label>${currentPage.mexLower}</label>
     </label>
 </div>
-<div class="cmp-helloworld__item" data-sly-use.modelMio="com.moveo.aem.training.core.models.HelloWorldAlfredoModel" data-sly-test="${modelMio.titoloUp}">
-<!--    <p class="cmp-helloworld__item-label">Model messaggio da stampare:</p>-->
-    <h1 style="color: chocolate" class="cmp-helloworld__item-output"data-cmp-hook-helloworld="model">Titolo in UP->   ${modelMio.titoloUp}</h1>
+
+
+<div class="miaclassestile" data-sly-use.modelMio="com.moveo.aem.training.core.models.HelloWorldAlfredoModel" >
+
+    <h1 class="miaclassestile">   ${modelMio.titoloUp}</h1>
 </div>
 
-<div class="cmp-helloworld__item" data-sly-use.modelMio="com.moveo.aem.training.core.models.HelloWorldAlfredoModel" data-sly-test="${modelMio.mexUp}">
-    <!--    <p class="cmp-helloworld__item-label">Model messaggio da stampare:</p>-->
-    <h3 style="color: greenyellow" class="cmp-helloworld__item-output"data-cmp-hook-helloworld="model">Mex in UP-->   ${modelMio.mexUp}</h3>
+<div data-sly-use.modelMio="com.moveo.aem.training.core.models.HelloWorldAlfredoModel" >
+   <h3>   ${modelMio.mexUp}</h3>
 </div>
