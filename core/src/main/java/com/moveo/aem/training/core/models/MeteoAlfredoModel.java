@@ -17,10 +17,12 @@ public class MeteoAlfredoModel {
     @ValueMapValue
     private String longitudine;
 
+    private String[] giorniSettimana;
+
 
     @PostConstruct
     protected void init() {
-
+        giorniSettimana = new String[]{"Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"};
     }
 
     public String getLatitudine(){
@@ -28,6 +30,10 @@ public class MeteoAlfredoModel {
     }
     public String getLongitudine(){
         return longitudine;
+    }
+
+    public String[] getGiorniSettimana(){
+        return giorniSettimana;
     }
 
 }
