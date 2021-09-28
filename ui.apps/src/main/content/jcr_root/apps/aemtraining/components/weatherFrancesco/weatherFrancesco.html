@@ -2,22 +2,19 @@
     <sly data-sly-call="${clientlib.all @ categories='aemtraining-weatherfrancesco' }"</sly>
 </sly>
 
-<div id="container">
-        <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
-            <h2><span id="span1">29 </span><span>${properties.citta} CS</span></h2>
-
-    </div>
-    <ul class="flex-container wrap">
-        <li class="flex-item">Lun</br><img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""></br>29&#8451; 21°</li>
-        <li class="flex-item">Mar</br><img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""></br>29&#8451; 21°</li>
-        <li class="flex-item">Mer</br><img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""></br>29&#8451; 21°</li>
-        <li class="flex-item">Gio</br><img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""></br>29&#8451; 21°</li>
-        <li class="flex-item">Ven</br><img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""></br>29&#8451; 21°</li>
-        <li class="flex-item">Sab</br><img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""></br>29&#8451; 21°</li>
-        <li class="flex-item">Dom</br><img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""></br>29&#8451; 21°</li>
-      </ul>
-
 <sly data-sly-use.model="com.moveo.aem.training.core.models.WeatherFrancesco">
-    <h3>${model.latitudine}</h3>
-    <h3>${model.longitudine}</h3>
 </sly>
+<div id="container">
+    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
+    <h2><span id="span1">29 </span><span>${properties.citta} CS</span></h2>
+
+</div>
+
+
+
+<ul data-sly-list.weatheritem = ${model.dailyWeatherBeanList} class="flex-container wrap">
+
+    <li class="flex-item">${weatheritem.day}</br><img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""></br>${weatheritem.tempMin}&#8451; ${weatheritem.tempMax}</li>
+
+
+</ul>
