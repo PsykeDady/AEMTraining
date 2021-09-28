@@ -1,41 +1,55 @@
 package com.moveo.aem.training.core.models;
 
+
+import com.moveo.aem.training.core.services.WeatherService;
+import com.moveo.aem.training.core.services.beans.DailyWeatherBean;
+import com.moveo.aem.training.core.services.impl.WeatherServiceImpl;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Model;
+import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
-import java.util.Optional;
+import java.util.List;
 
 @Model(adaptables = Resource.class)
 public class WheaterDomModel {
 
-    private String message;
+    @ValueMapValue
+    private  static String longitudine;
 
     @ValueMapValue
-    private String latitudine;
+    private static String latitudine;
 
-    @ValueMapValue
-    private String longitudine;
+    @OSGiService
+    private WeatherService weatherService;
+
+    private List<DailyWeatherBean> dailyWeatherBeanList;
+
+    private static Logger logger = LoggerFactory.getLogger(WheaterDomModel.class);
 
     @PostConstruct
     protected void init() {
-        latitudine=latitudine==null?"":latitudine;
-        longitudine=longitudine==null?"":longitudine;
+
+
+        try {
+            dailyWeatherBeanList=weatherService.getDailyForecast(latitudine,longitudine);
+            logger.debug("classe WeatherFrancesco funziona");
+        } catch (Exception e) {
+            logger.error("errore durante la chiamata di WheaterDomModel"+e.getMessage());
+        }
+
     }
 
-    public String getMessage() {
-        return message;
+    public List<DailyWeatherBean> getDailyWeatherBeanList () {
+        return dailyWeatherBeanList;
     }
 
-    public String getLatitudine() {
-        return latitudine;
+    public DailyWeatherBean getDayOne () {
+        return dailyWeatherBeanList.get(0);
     }
-
-    public String getLongitudine() {
-        return longitudine;
-    }
-
 
 
 }

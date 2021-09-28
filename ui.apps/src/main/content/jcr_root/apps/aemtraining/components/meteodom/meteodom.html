@@ -2,66 +2,23 @@
     <sly data-sly-call="${clientlib.all @ categories='aemtraining-meteodom' }"</sly>
 </sly>
 
-<sly data-sly-test.requiredFields="${wcmmode.edit && !properties.latitudine && !properties.longitudine}">
-    <div data-emptytext="Click to add free text content" class="cq-placeholder"></div>
-</sly>
+<sly data-sly-use.model="com.moveo.aem.training.core.models.WheaterDomModel"></sly>
 
 <body>
 
 <div id="container">
-    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
-    <h2><span id="span1">29 </span><span>${properties.citta} CS</span></h2>
+    <p>${model.dayOne.day}</p>
+    <img src="http://openweathermap.org/img/wn/${model.dayOne.icon}.png">
+    <p>${model.dayOne.tempMin}° ${model.dayOne.tempMax}° </p>
+    <h2><span>${properties.citta} CS</span></h2>
 
 </div>
-<ul class="flex-container wrap">
+
+<ul data-sly-list.weatheritem = ${model.dailyWeatherBeanList} class="flex-container wrap">
     <li class="flex-item">
-        <p>Lun</p>
-        <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
-        <p>29° 21°</p>
-    </li>
-    <li class="flex-item">
-        <p>Mar</p>
-        <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
-        <p>29° 21°</p>
-    </li>
-    <li class="flex-item">
-        <p>Mer</p>
-        <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
-        <p>29° 21°</p>
-    </li>
-    <li class="flex-item">
-        <p>Gio</p>
-        <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
-        <p>29° 21°</p>
-    </li>
-    <li class="flex-item">
-        <p>Ven</p>
-        <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
-        <p>29° 21°</p>
-    </li>
-    <li class="flex-item">
-        <p>Sab</p>
-        <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
-        <p>29° 21°</p>
-    </li>
-    <li class="flex-item">
-        <p>Dom</p>
-        <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
-        <p>29° 21°</p>
+        <p>${weatheritem.day}</p>
+        <img src="http://openweathermap.org/img/w/${weatheritem.icon}.png">
+        <p>${weatheritem.tempMin}° ${weatheritem.tempMax}° </p>
     </li>
 </ul>
-
-<div data-sly-test = "${!requiredFields}">
-
-    <div data-sly-use.modelMio="com.moveo.aem.training.core.models.WheaterDomModel">
-        <h3>Latitudine--> ${modelMio.latitudine}</h3>
-        </br>
-        <h3>Longitudine--> ${modelMio.longitudine}</h3>
-    </div>
-</div>
-
-
-
-</div>
-
 </body>

@@ -36,6 +36,9 @@
     padding: 0;
     margin: 0;
     border: 1px solid red;
+    color: black;
+    font-weight: bold;
+    text-align: center;
 }
 
 #span1{
