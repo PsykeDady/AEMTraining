@@ -1,0 +1,97 @@
+<span><img src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"/> 
+<p>24°C°F</p>
+</span>
+
+Latitude:
+<h1 style="color: #2020e2">
+
+    ${properties.latitude}
+</h1>
+<br>
+Longtitude:
+<label style="color: red">
+    ${properties.longtitude}
+</label><br>
+
+<div data-sly-use.model="com.moveo.aem.training.core.models.WeatherGezuModel">
+    <h3>Latitude--> ${model.latitude}</h3>
+    </br>
+    <h3>Longtitude--> ${model.longtitude}</h3>
+</div>
+
+<sly data-sly-test.requiredFields="${wcmmode.edit && !properties.latitude && !properties.longtitude}">
+    <div data-emptytext="Click to add free text content" class="cq-placeholder"></div>
+</sly>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories = 'aemtraning-weather-gezu'}">${model.location}</sly>
+</sly>
+
+
+<div class="boxer">
+
+    <div class="box-row">
+        <span>
+        <p>lu</p>
+        <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"/>
+        </span>
+        <span>
+        <p>29° 21°</p>
+        </span>
+    </div>
+    <div class="box-row">
+			 <span>
+        <p>lu</p>
+        <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"/>
+        </span>
+        <span>
+        <p>29° 21°</p>
+        </span>
+    </div>
+    <div class="box-row">
+			 <span>
+        <p>lu</p>
+        <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"/>
+        </span>
+        <span>
+        <p>29° 21°</p>
+        </span>
+    </div>
+    <div class="box-row">
+			 <span>
+        <p>lu</p>
+        <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"/>
+        </span>
+        <span>
+        <p>29° 21°</p>
+        </span>
+    </div>
+    <div class="box-row">
+				 <span>
+        <p>lu</p>
+        <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"/>
+        </span>
+        <span>
+        <p>29° 21°</p>
+        </span>
+    </div>
+    <div class="box-row">
+			 <span>
+        <p>lu</p>
+        <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"/>
+        </span>
+        <span>
+        <p>29° 21°</p>
+        </span>
+    </div>
+    <div class="box-row">
+			 <span>
+        <p>lu</p>
+        <img src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"/>
+        </span>
+        <span>
+        <p>29° 21°</p>
+        </span>
+    </div>
+
+</div>
