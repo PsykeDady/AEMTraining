@@ -10,6 +10,7 @@ import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class WeatherServiceImpl implements WeatherService {
             // TODO: convertire epoch to Date
             DailyWeatherBean dailyWeatherBean = new DailyWeatherBean();
             LocalDateTime localdatetime=LocalDateTime.ofEpochSecond(dailyWeatherResp.getDt(),0, ZoneOffset.UTC);
-            dailyWeatherBean.setDay(localdatetime.getDayOfWeek().toString());
+            dailyWeatherBean.setDay(italianWeek(localdatetime.getDayOfWeek()));
             dailyWeatherBean.setTempMax(dailyWeatherResp.getTemp().getMax().toString());
             dailyWeatherBean.setTempMin(dailyWeatherResp.getTemp().getMin().toString());
             dailyWeatherBean.setIcon(dailyWeatherResp.getWeather().get(0).getIcon());
@@ -46,5 +47,16 @@ public class WeatherServiceImpl implements WeatherService {
         return  dailyWeatherBeanList;
     }
 
+    private static String italianWeek(DayOfWeek day){
+        switch (day){
+            case MONDAY: return "Luned\u00ec";
+            case FRIDAY: return "Venderd\u00ec";
+            case SATURDAY: return "Sabato";
+            case THURSDAY: return "Gioved\u00ec";
+            case TUESDAY: return "Marted\u00ec";
+            case WEDNESDAY: return "Mercoled\u00ec";
+            default: return  "Domenica";
+        }
+    }
 
 }

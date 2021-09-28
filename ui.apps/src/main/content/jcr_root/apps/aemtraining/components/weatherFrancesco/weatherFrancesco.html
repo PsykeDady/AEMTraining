@@ -4,9 +4,10 @@
 
 <sly data-sly-use.model="com.moveo.aem.training.core.models.WeatherFrancesco">
 </sly>
-<div id="container">
-    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="">
-    <h2><span id="span1">29 </span><span>${properties.citta} CS</span></h2>
+<div id="container" data-sly-list.item=${model.dailyWeatherBeanList}>
+    <sly  data-sly-test="${itemList.index==0}">
+        <img src="http://openweathermap.org/img/wn/${item.icon}.png" alt="">
+        <h2><span id="span1"> ${item.day} </span><span id="spanCitta">${properties.citta} </span><span id="spanTemp"> ${item.tempMin}&#8451  ${item.tempMax}&#8451</span></h2></sly>
 
 </div>
 
@@ -14,7 +15,7 @@
 
 <ul data-sly-list.weatheritem = ${model.dailyWeatherBeanList} class="flex-container wrap">
 
-    <li class="flex-item">${weatheritem.day}</br><img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt=""></br>${weatheritem.tempMin}&#8451; ${weatheritem.tempMax}</li>
+    <li class="flex-item">${weatheritem.day}</br><img src="http://openweathermap.org/img/wn/${weatheritem.icon}.png" alt=""></br>${weatheritem.tempMin}&#8451 ;  ${weatheritem.tempMax}&#8451</li>
 
 
 </ul>

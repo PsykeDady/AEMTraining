@@ -35,6 +35,7 @@
 }
 
 #container{
+    background: white;
     padding: 0;
     margin: 0;
     border: 1px solid red;
@@ -42,4 +43,20 @@
 
 #span1{
     margin-left: 100px;
+}
+
+#spanCitta{
+    color: red;
+
+}
+
+#spanTemp{
+    color: blue;
+}
+
+
+@media only screen and (max-width: 600px) {
+    #span1 {
+        margin-left: 0px;
+    }
 }
