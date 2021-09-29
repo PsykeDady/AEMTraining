@@ -26,6 +26,7 @@ public class WeatherServiceImpl implements WeatherService {
     public List<DailyWeatherBean> getDailyForecast(String latitudine, String longitudine) throws Exception {
         logger.debug("entrato in WeatherServiceImpl");
         String url = "https://api.openweathermap.org/data/2.5/onecall?lat="+latitudine+"&lon="+longitudine+"&lang=it&exclude=minutely,current,hourly,alerts&units=metric&appid=777a8a95a8fe7b0637a7daf3a860d216";
+        logger.info("URLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL" + url);
         String response = HttpClientFrancesco.executeGet(url);
         ObjectMapper objectMapper = new ObjectMapper();
         DailyWeatherResponse dailyWeatherResponse = objectMapper.readValue(response, DailyWeatherResponse.class);
@@ -37,6 +38,7 @@ public class WeatherServiceImpl implements WeatherService {
             LocalDateTime localdatetime=LocalDateTime.ofEpochSecond(dailyWeatherResp.getDt(),0, ZoneOffset.UTC);
             dailyWeatherBean.setDay(italianWeek(localdatetime.getDayOfWeek()));
             dailyWeatherBean.setTempMax(dailyWeatherResp.getTemp().getMax().toString());
+            logger.info("MAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" + dailyWeatherResp.getTemp().getMax().toString() );
             dailyWeatherBean.setTempMin(dailyWeatherResp.getTemp().getMin().toString());
             dailyWeatherBean.setIcon(dailyWeatherResp.getWeather().get(0).getIcon());
             dailyWeatherBean.setDescription(dailyWeatherResp.getWeather().get(0).getDescription());

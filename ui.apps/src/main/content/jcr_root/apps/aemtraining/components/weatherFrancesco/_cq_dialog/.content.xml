@@ -16,16 +16,17 @@
                         sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                         fieldLabel="Citta"
                         name="./citta"/>
+                    <latitudine
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                            fieldLabel="Latitudine"
+                            name="./latitudine"/>
                     <longitudine
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                         fieldLabel="Longitudine"
                         name="./longitudine"/>
-                    <latitudine
-                        jcr:primaryType="nt:unstructured"
-                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                        fieldLabel="Latitudine"
-                        name="./latitudine"/>
+
                 </items>
             </column>
         </items>
