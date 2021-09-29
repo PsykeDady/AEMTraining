@@ -1,0 +1,25 @@
+
+.boxer{
+  display: flex;
+  flex-flow: nowrap;
+  border-spacing: 6px;
+   margin-left:2px;
+     padding:3px;
+
+
+}
+.box-row{
+  width: 20%;
+  background:#eee;
+  border-color:#eee;
+    border: solid thin;
+    text-align:center;
+    border-radius:10px;
+     border-spacing: 12px;
+
+}
+
+.colspan2{
+  flex: 2;
+
+}
