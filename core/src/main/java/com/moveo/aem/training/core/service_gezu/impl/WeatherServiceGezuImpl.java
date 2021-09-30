@@ -1,11 +1,14 @@
 package com.moveo.aem.training.core.service_gezu.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.moveo.aem.training.core.schedulers.SimpleScheduledTask;
 import com.moveo.aem.training.core.service_gezu.WeatherService;
+import com.moveo.aem.training.core.service_gezu.WeatherServiceDesignate;
 import com.moveo.aem.training.core.services.beans.DailyWeatherBean;
 import com.moveo.aem.training.core.services.beans.response.weather.Daily;
 import com.moveo.aem.training.core.services.beans.response.weather.DailyWeatherResponse;
 import com.moveo.aem.training.core.utils.HttpClientGezu;
+import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,12 +22,22 @@ import java.util.List;
 @Component(service = {WeatherService.class})
 public class WeatherServiceGezuImpl implements WeatherService {
 
+
+    private String appkey;
     private static Logger logger = LoggerFactory.getLogger(WeatherServiceGezuImpl.class);
+
+
+    @Activate
+    protected void activate(final WeatherServiceDesignate config) {
+
+        appkey = config.apiId();
+    }
+
 
     @Override
     public List<DailyWeatherBean> getDailyForecast(String latitudine, String longitudine) throws Exception {
         logger.debug("WeatherServiceImpl INFO");
-        String url = "https://api.openweathermap.org/data/2.5/onecall?lat="+latitudine+"&lon="+longitudine+"&lang=it&exclude=minutely,current,hourly,alerts&units=metric&appid=a87e7d7f84cae9725446031971c3a8a0";
+        String url = "https://api.openweathermap.org/data/2.5/onecall?lat="+latitudine+"&lon="+longitudine+"&lang=it&exclude=minutely,current,hourly,alerts&units=metric&appid="+appkey+"";
         String response = HttpClientGezu.executeGet(url);
         ObjectMapper objectMapper = new ObjectMapper();
         DailyWeatherResponse dailyWeatherResponse = objectMapper.readValue(response, DailyWeatherResponse.class);

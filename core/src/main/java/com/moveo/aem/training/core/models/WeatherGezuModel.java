@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +23,7 @@ public class WeatherGezuModel {
     @ValueMapValue
     private String longtitude;
 
-    @OSGiService
+    @Inject
     private WeatherService weatherService;
 
 
