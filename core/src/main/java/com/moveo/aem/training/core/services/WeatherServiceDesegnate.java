@@ -15,6 +15,6 @@ public @interface WeatherServiceDesegnate {
 
     @AttributeDefinition(name = "API key",
             description = "openweather api key")
-    String apiId() default "fd4a3d5871e3824ca6748d29aa1b25d8";
+    String apiId() default "777a8a95a8fe7b0637a7daf3a860d216";
 
 }
