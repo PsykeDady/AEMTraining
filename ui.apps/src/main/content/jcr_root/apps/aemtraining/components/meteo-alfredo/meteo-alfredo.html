@@ -1,4 +1,6 @@
 <!-- Stampa dalle proprietà  MeteoAlfredoModel-->
+
+<!--
 Latitudine:
 <h1 style="color: #2020e0">
     ${properties.latitudine}
@@ -7,32 +9,41 @@ Latitudine:
 <label style="color: red">
 	${properties.longitudine}
 </label><br>
+-->
 <!-- Stampa dal model  MeteoAlfredoModel-->
+<!--
 <div data-sly-use.modelMio="com.moveo.aem.training.core.models.MeteoAlfredoModel">
-    <h3>Latitudine--> ${modelMio.latitudine}</h3>
+    <h3>Latitudine:   ${modelMio.latitudine}</h3>
     </br>
-    <h3>Longitudine--> ${modelMio.longitudine}</h3>
+    <h3>Longitudine:   ${modelMio.longitudine}</h3>
 </div>
-
+-->
 <!-- Imposta required le proprietà latitudine e longitudine -->
+<!--
 <sly data-sly-test.requiredFields="${wcmmode.edit && !properties.latitudine && !properties.longitudine}">
     <div data-emptytext="Click to add free text content" class="cq-placeholder"></div>
 </sly>
-
-<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
-    <sly data-sly-call="${clientlib.all @ categories = 'aemtraning-meteo-alfredo'}"> ${modelMio.titoloUp} </sly>
-
-</sly>
+-->
 <div>
-    <div class="contenitoreGiorni" data-sly-use.md="com.moveo.aem.training.core.models.MeteoAlfredoModel">
-        <div data-sly-repeat.elemento="${[0,1,2,3,4,5,6]}">
+    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+        <sly data-sly-call="${clientlib.all @ categories = 'aemtraning-meteo-alfredo'}">  </sly>
+
+    </sly>
+
+    <sly data-sly-use.model="com.moveo.aem.training.core.models.MeteoAlfredoModel">
+    </sly>
+
+
+
+    <div class="contenitoreGiorni" >
+        <div data-sly-repeat.elemento="${model.dailyWeatherAlfredoBeanList}" class="flex-container wrap">
             <div class="cellaSingola">
-                <h2 class="titoloGiorno"> ${md.giorniSettimana[elemento]} </h2>
-                <img class="immagine" src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png">
+                <h2 class="titoloGiorno"> ${elemento.day} </h2>
+                <img class="immagine" src="http://openweathermap.org/img/w/${elemento.icon}.png">
                 <br>
                 <div class="temperatureGiornaliere">
-                    <h5 class="temperaturaMin">20°</h5>
-                    <h5 class="temperaturaMax">30°</h5>
+                    <h5 class="temperaturaMin">${elemento.temperaturaMinima}</h5>
+                    <h5 class="temperaturaMax">${elemento.temperaturaMassima}</h5>
                 </div>
             </div>
         </div>
