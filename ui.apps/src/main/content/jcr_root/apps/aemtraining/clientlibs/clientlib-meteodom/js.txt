@@ -16,3 +16,5 @@
 
 #base=js
 meteodom.js
+handlebars.min-v4.7.7.js
+jQuery3.6-min.js
