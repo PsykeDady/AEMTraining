@@ -1,36 +1,24 @@
-Latitude:
-<label style="color: red">
-    ${properties.latitude}
-</label>
-<br>
-Longtitude:
-<label style="color: red">
-    ${properties.longtitude}
-</label><br>
 
-<div data-sly-use.model="com.moveo.aem.training.core.models.WeatherGezuModel">
 
-</div>
+<div id="weatherContainer"></div>
+<script id="weatherTemplate" type="text/x-handlebars-template">
 
-<sly data-sly-test.requiredFields="${wcmmode.edit && !properties.latitude && !properties.longtitude}">
-    <div data-emptytext="Click to add free text content" class="cq-placeholder"></div>
-</sly>
+    <ul>
+        {{#each dailyWeatherBeanList}}
+        <li class="box-row">
+            <p>{{day}}</p>
+            <img src=" http://openweathermap.org/img/wn/{{icon}}.png"/>
+            <p>{{tempMin}}° {{tempMax}}°</p>
+        </li>
+        {{/each}}
+    </ul>
+
+</script>
 
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
-    <sly data-sly-call="${clientlib.all @ categories = 'aemtraning-weather-gezu'}">${model.location}</sly>
+    <sly data-sly-call="${clientlib.all @ categories = 'aemtraining-weather-gezu'}"></sly>
 </sly>
 
 
-<div class="boxer" data-sly-list.weatheritem=${model.dailyWeatherBeanList}>
-    <div class="box-row">
-        <span>
-        <p>${weatheritem.day}</p>
-        <img src=" http://openweathermap.org/img/wn/${weatheritem.icon}.png"/>
-        </span>
-        <span>
-        <p>${weatheritem.tempMin}° ${weatheritem.tempMax}°</p>
-        </span>
-    </div>
 
 
-</div>

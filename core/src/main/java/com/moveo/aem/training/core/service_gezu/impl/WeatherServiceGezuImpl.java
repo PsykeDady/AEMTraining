@@ -23,21 +23,21 @@ import java.util.List;
 public class WeatherServiceGezuImpl implements WeatherService {
 
 
-    private String appkey;
+    private String appKey;
     private static Logger logger = LoggerFactory.getLogger(WeatherServiceGezuImpl.class);
 
 
     @Activate
     protected void activate(final WeatherServiceDesignate config) {
 
-        appkey = config.apiId();
+        appKey = config.apiId();
     }
 
 
     @Override
     public List<DailyWeatherBean> getDailyForecast(String latitudine, String longitudine) throws Exception {
         logger.debug("WeatherServiceImpl INFO");
-        String url = "https://api.openweathermap.org/data/2.5/onecall?lat="+latitudine+"&lon="+longitudine+"&lang=it&exclude=minutely,current,hourly,alerts&units=metric&appid="+appkey+"";
+        String url = "https://api.openweathermap.org/data/2.5/onecall?lat="+latitudine+"&lon="+longitudine+"&lang=it&exclude=minutely,current,hourly,alerts&units=metric&appid="+appKey;
         String response = HttpClientGezu.executeGet(url);
         ObjectMapper objectMapper = new ObjectMapper();
         DailyWeatherResponse dailyWeatherResponse = objectMapper.readValue(response, DailyWeatherResponse.class);

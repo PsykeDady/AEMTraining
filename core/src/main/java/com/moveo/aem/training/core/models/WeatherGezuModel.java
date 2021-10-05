@@ -26,9 +26,6 @@ public class WeatherGezuModel {
     @Inject
     private WeatherService weatherService;
 
-
-
-
     private List<DailyWeatherBean> dailyWeatherBeanList;
 
 
