@@ -16,3 +16,5 @@
 
 #base=js
 meteo-alfredo.js
+jquery-3.6.0.min.js
+handlebars.min-v4.7.7.js
