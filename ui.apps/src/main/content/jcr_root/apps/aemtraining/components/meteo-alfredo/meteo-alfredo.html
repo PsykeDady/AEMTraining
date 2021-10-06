@@ -1,51 +1,25 @@
-<!-- Stampa dalle proprietà  MeteoAlfredoModel-->
 
-<!--
-Latitudine:
-<h1 style="color: #2020e0">
-    ${properties.latitudine}
-</h1>
-<br> Longitudine:
-<label style="color: red">
-	${properties.longitudine}
-</label><br>
--->
-<!-- Stampa dal model  MeteoAlfredoModel-->
-<!--
-<div data-sly-use.modelMio="com.moveo.aem.training.core.models.MeteoAlfredoModel">
-    <h3>Latitudine:   ${modelMio.latitudine}</h3>
-    </br>
-    <h3>Longitudine:   ${modelMio.longitudine}</h3>
-</div>
--->
-<!-- Imposta required le proprietà latitudine e longitudine -->
-<!--
-<sly data-sly-test.requiredFields="${wcmmode.edit && !properties.latitudine && !properties.longitudine}">
-    <div data-emptytext="Click to add free text content" class="cq-placeholder"></div>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories = 'aemtraning-meteo-alfredo'}">  </sly>
+
 </sly>
--->
-<div>
-    <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
-        <sly data-sly-call="${clientlib.all @ categories = 'aemtraning-meteo-alfredo'}">  </sly>
-
-    </sly>
-
-    <sly data-sly-use.model="com.moveo.aem.training.core.models.MeteoAlfredoModel">
-    </sly>
+<sly data-sly-use.model="com.moveo.aem.training.core.models.MeteoAlfredoModel">
+</sly>
 
 
 
-    <div class="contenitoreGiorni" >
-        <div data-sly-repeat.elemento="${model.dailyWeatherAlfredoBeanList}" class="flex-container wrap">
-            <div class="cellaSingola">
-                <h2 class="titoloGiorno"> ${elemento.day} </h2>
-                <img class="immagine" src="http://openweathermap.org/img/w/${elemento.icon}.png">
-                <br>
-                <div class="temperatureGiornaliere">
-                    <h5 class="temperaturaMin">${elemento.temperaturaMinima}</h5>
-                    <h5 class="temperaturaMax">${elemento.temperaturaMassima}</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<body>
+
+<div id="meteoContainer"></div>
+<script id="meteoTemplate" type="text/x-handlebars-template">
+    <ul>
+        {{#each dailyWeatherAlfredoBeanList}}
+        <li class="flex-item">
+            <p>{{day}}</p>
+            <img src="http://openweathermap.org/img/w/{{icon}}.png">
+            <p>{{temperaturaMinima}}° {{temperaturaMassima}}° </p>
+        </li>
+        {{/each}}
+    </ul>
+</script>
