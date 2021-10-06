@@ -11,10 +11,9 @@ import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
-import java.util.Optional;
 
 @Model(adaptables = Resource.class)
-public class WeatherGezuModel {
+public class WeatherModelGezu {
 
     @ValueMapValue
     private String latitude;
@@ -25,30 +24,29 @@ public class WeatherGezuModel {
     @OSGiService
     private WeatherService weatherService;
 
-
-
-
     private List<DailyWeatherBean> dailyWeatherBeanList;
 
 
-
-    private static Logger logger = LoggerFactory.getLogger(WeatherFrancesco.class);
+    private static Logger logger = LoggerFactory.getLogger(WeatherModelGezu.class);
 
     @PostConstruct
     protected void init() {
 
         try {
-            dailyWeatherBeanList=weatherService.getDailyForecast(latitude,longtitude);
+            dailyWeatherBeanList = weatherService.getDailyForecast(latitude, longtitude);
             logger.debug("Check daily forecast response");
         } catch (Exception e) {
-            logger.error("there is an error is {}"+e.getMessage());
+            logger.error("there is an error is {}" + e.getMessage());
         }
 
     }
 
-    public List<DailyWeatherBean> getDailyWeatherBeanList () {
+    public List<DailyWeatherBean> getDailyWeatherBeanList() {
         return dailyWeatherBeanList;
     }
 
+    public DailyWeatherBean getDayOne() {
+        return dailyWeatherBeanList.get(0);
+    }
 
 }
