@@ -1,92 +1,18 @@
-*{
-	--cw: 91vmin;
-	--cw-red: 90vmin;
-	--border-w:0.05vw;
-
-	--ch:32vh;
-	--ch-red:29vh;
-
-	--footer-font: calc((var(--cw-red) + var(--ch-red) ) / 80);
-	--other-font: calc((var(--cw-red) + var(--ch-red) ) / 60);
+.cmp-helloworld__item{
+	display: flex;
+    color: red;
 }
 
+.h1test{
+	color:red;
+    }        
 
-#psyke_meteo{
+#h1div{
+	color: blue
+    }
 
-	width: var(--cw);
-	height: var(--ch);
-	border: var(--border-w) black solid;
-}
+.h1Red{
+        color: red}
 
-#psyke_meteo_box{
-	--box-h:calc(var(--ch-red) * 85 / 100 );
-	overflow-x: scroll;
-	overflow-y: hidden;
-
-	width: var(--cw-red);
-	height: var(--box-h);
-
-
-	border-bottom: var(--border-w) black solid;
-}
-
-.littlepicture{
-	--litp-h:var(--box-h);
-	height: var(--litp-h);
-	width:var(--cw-red);
-} 
-
-.littlepicture th{
-	padding: 0%;
-	height: var(--litp-h);
-	width: calc(var(--cw-red) / 8);
-	border-right: var(--border-w) black solid;
-}
-.littlepicture th:last-child{
-	border-right: none;
-}
-
-.littlepicture th div div{
-	margin: 0;
-	padding: 0;
-
-	font-size: var(--other-font);
-}
-
-.littlepicture th div img{
-	height: calc(var(--litp-h) * 4 / 10 );
-}
-
-#nomeg{
-	height: calc(var(--litp-h) * 2 / 10 );	
-}
-
-#maxmin{
-	height: calc(var(--litp-h) * 2 / 10 );
-}
-
-
-#psyke_meteo q{
-	margin: 0;
-	padding: 0;
-
-	margin-left: 15%;
-	font-size: var(--footer-font);
-}
-
-
-*::-webkit-scrollbar{
-    width: var(--scroll-width);
-}
-*::-webkit-scrollbar-track{
-    background-color: var(--main-bg-color);
-}
-*::-webkit-scrollbar-thumb{
-    background-color: var(--secondary-light);
-}
-*::-webkit-scrollbar-track:hover{
-    background-color: var(--secondary-bg-color);
-}
-*::-webkit-scrollbar-thumb:hover{
-    background-color: var(--secondary-dark);
-}
+.h1blue{
+            color:blue}
