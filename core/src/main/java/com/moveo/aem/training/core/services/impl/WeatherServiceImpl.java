@@ -38,7 +38,7 @@ public class WeatherServiceImpl implements WeatherService {
     public List<DailyWeatherBean> getDailyForecast(String latitudine, String longitudine) throws Exception {
         logger.debug("entrato in WeatherServiceImpl");
 
-        String url = "https://api.openweathermap.org/data/2.5/onecall?lat="+latitudine+"&lon="+longitudine+"&lang=it&exclude=minutely,current,hourly,alerts&units=metric&appid="+appKey;
+           String url = "https://api.openweathermap.org/data/2.5/onecall?lat="+latitudine+"&lon="+longitudine+"&lang=it&exclude=minutely,current,hourly,alerts&units=metric&appid="+appKey;
 
         logger.info("URLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL" + url);
 

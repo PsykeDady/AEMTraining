@@ -1,7 +1,5 @@
-
-
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
-    <sly data-sly-call="${clientlib.all @ categories = 'aemtraning-meteo-alfredo'}">  </sly>
+    <sly data-sly-call="${clientlib.all @ categories = 'aemtraning-meteo-alfredo'}"> </sly>
 
 </sly>
 <sly data-sly-use.model="com.moveo.aem.training.core.models.MeteoAlfredoModel">
@@ -11,15 +9,27 @@
 
 <body>
 
-<div id="meteoContainer"></div>
-<script id="meteoTemplate" type="text/x-handlebars-template">
-    <ul>
-        {{#each dailyWeatherAlfredoBeanList}}
-        <li class="flex-item">
-            <p>{{day}}</p>
-            <img src="http://openweathermap.org/img/w/{{icon}}.png">
-            <p>{{temperaturaMinima}}° {{temperaturaMassima}}° </p>
-        </li>
-        {{/each}}
-    </ul>
+    <div id="meteoContainer"></div>
+    <script id="meteoTemplate" type="text/x-handlebars-template">
+        <div class="row">
+            {{#each dailyWeatherAlfredoBeanList}}
+
+            {{#ifCond @index '<' 4}}
+            <div class="col-sm-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{day}} treatment</h5>
+                        <img class="card-img-top" src="http://openweathermap.org/img/w/{{icon}}.png" alt="Card image cap">
+                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+            {{/ifCond}}
+
+
+            <br>
+            {{/each}}
+        </div>
+      </div>
 </script>
