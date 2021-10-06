@@ -13,10 +13,7 @@ import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 import org.apache.sling.settings.SlingSettingsService;
 
-import com.day.cq.wcm.api.Page;
-import com.day.cq.wcm.api.PageManager;
 
-import java.util.Locale;
 import java.util.Optional;
 
 @Model(adaptables = Resource.class)
