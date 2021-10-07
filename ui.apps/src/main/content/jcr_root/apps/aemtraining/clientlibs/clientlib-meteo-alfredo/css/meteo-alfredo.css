@@ -35,15 +35,17 @@
 
 .temperaturaMin {
     color: rgb(0, 119, 255);
-    margin: 20px;
+    text-align: center;
+    /* margin: 20px; */
     /* padding: 20%; */
-    font-size: 35px;
+    /* font-size: 35px; */
 }
 
 .temperaturaMax {
     color: red;
-    margin: 20px;
+    text-align: center;
+    /* margin: 20px; */
     /* padding: 20px; */
     font-weight: bold;
-    font-size: 35px;
+    /* font-size: 35px; */
 }
