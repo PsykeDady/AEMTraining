@@ -1,12 +1,12 @@
-package com.moveo.aem.training.core.service_gezu;
+package com.moveo.aem.training.core.services;
 
 import org.osgi.service.metatype.annotations.AttributeDefinition;
 import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 
-@Designate(ocd=WeatherServiceDesignate.class)
+@Designate(ocd=WeatherServiceDesignateGe.class)
 @ObjectClassDefinition(name = "Aemtraining weather configuration", description = "Aemtraining weather")
-public @interface WeatherServiceDesignate {
+public @interface WeatherServiceDesignateGe {
 
     @AttributeDefinition(name = "API key", description = "openweather api key")
 

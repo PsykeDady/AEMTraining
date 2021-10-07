@@ -1,4 +1,4 @@
-package com.moveo.aem.training.core.service_gezu;
+package com.moveo.aem.training.core.services;
 
 
 import com.moveo.aem.training.core.beans.DailyWeatherBean;
