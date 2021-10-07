@@ -1,6 +1,6 @@
 package com.moveo.aem.training.core.services;
 
-import com.moveo.aem.training.core.services.beans.DailyWeatherAlfredoBean;
+import com.moveo.aem.training.core.beans.DailyWeatherAlfredoBean;
 
 import java.util.List;
 

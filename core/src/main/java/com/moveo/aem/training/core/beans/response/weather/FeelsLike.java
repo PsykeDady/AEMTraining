@@ -1,5 +1,5 @@
 
-package com.moveo.aem.training.core.services.beans.response.meteoalfredo;
+package com.moveo.aem.training.core.beans.response.weather;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -33,7 +33,7 @@ public class FeelsLike implements Serializable
     private Double morn;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-    private final static long serialVersionUID = 4834111330923246270L;
+    private final static long serialVersionUID = -4476937898792933743L;
 
     @JsonProperty("day")
     public Double getDay() {

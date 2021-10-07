@@ -1,7 +1,7 @@
 package com.moveo.aem.training.core.service_gezu;
 
 
-import com.moveo.aem.training.core.services.beans.DailyWeatherBean;
+import com.moveo.aem.training.core.beans.DailyWeatherBean;
 
 import java.util.List;
 

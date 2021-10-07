@@ -3,11 +3,11 @@ package com.moveo.aem.training.core.services.impl;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.moveo.aem.training.core.services.WeatherAlfredoService;
 import com.moveo.aem.training.core.services.WeatherAlfredoServiceDesegnate;
-import com.moveo.aem.training.core.services.WeatherServiceDesegnate;
-import com.moveo.aem.training.core.services.beans.DailyWeatherAlfredoBean;
-import com.moveo.aem.training.core.services.beans.response.meteoalfredo.Daily;
-import com.moveo.aem.training.core.services.beans.response.meteoalfredo.DailyWeatherAlfredoResponse;
+import com.moveo.aem.training.core.beans.DailyWeatherAlfredoBean;
+import com.moveo.aem.training.core.beans.response.meteoalfredo.Daily;
+import com.moveo.aem.training.core.beans.response.meteoalfredo.DailyWeatherAlfredoResponse;
 import com.moveo.aem.training.core.utility.HttpClientAlfredo;
+import com.moveo.aem.training.core.utility.Utils;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.metatype.annotations.Designate;
@@ -51,7 +51,7 @@ public class WeatherAlfredoServiceImpl implements WeatherAlfredoService {
             LocalDateTime localdatetime = LocalDateTime.ofEpochSecond(dailyWeatherRes.getDt(),0, ZoneOffset.UTC);
             // imposto le proprietà che mi interessano
             // giorno settimana
-            dailyWeatherAlfredoBean.setDay(localdatetime.getDayOfWeek().toString());
+            dailyWeatherAlfredoBean.setDay(Utils.translateDay(localdatetime.getDayOfWeek().toString()));
             // icona
             dailyWeatherAlfredoBean.setIcon(dailyWeatherRes.getWeather().get(0).getIcon());
             // descrizione

@@ -1,12 +1,11 @@
 package com.moveo.aem.training.core.services.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.moveo.aem.training.core.schedulers.SimpleScheduledTask;
 import com.moveo.aem.training.core.services.WeatherServiceDesegnate;
-import com.moveo.aem.training.core.services.beans.DailyWeatherBean;
+import com.moveo.aem.training.core.beans.DailyWeatherBean;
 import com.moveo.aem.training.core.services.WeatherService;
-import com.moveo.aem.training.core.services.beans.response.weather.Daily;
-import com.moveo.aem.training.core.services.beans.response.weather.DailyWeatherResponse;
+import com.moveo.aem.training.core.beans.response.weather.Daily;
+import com.moveo.aem.training.core.beans.response.weather.DailyWeatherResponse;
 import com.moveo.aem.training.core.utils.HttpClientFrancesco;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;

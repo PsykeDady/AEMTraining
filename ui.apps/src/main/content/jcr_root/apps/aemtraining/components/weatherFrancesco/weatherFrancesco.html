@@ -1,6 +1,9 @@
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
-    <sly data-sly-call="${clientlib.all @ categories='aemtraining-weatherfrancesco' }"</sly>
+    <sly data-sly-call="${clientlib.all @ categories='aemtraining-weatherfrancesco' }"></sly>
 </sly>
+
+
+
 <sly data-sly-use.model="com.moveo.aem.training.core.models.WeatherFrancesco"></sly>
 
 <body>
@@ -28,6 +31,28 @@
     </ul>
 </script>
 
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">24h %</th>
+        <th scope="col">7d %</th>
+        <th scope="col">Max Supply</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">BTC</th>
+        <td>54.000</td>
+        <td>+6.96%</td>
+        <td>+25%</td>
+        <td>21000000</td>
+    </tr>
+
+    </tbody>
+</table>
 
 
 </body>

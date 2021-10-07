@@ -1,7 +1,7 @@
 package com.moveo.aem.training.core.models;
 
 import com.moveo.aem.training.core.services.WeatherService;
-import com.moveo.aem.training.core.services.beans.DailyWeatherBean;
+import com.moveo.aem.training.core.beans.DailyWeatherBean;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
