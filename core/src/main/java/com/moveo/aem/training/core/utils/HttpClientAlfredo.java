@@ -1,6 +1,4 @@
-package com.moveo.aem.training.core.utility;
-
-import com.moveo.aem.training.core.utils.HttpClientFrancesco;
+package com.moveo.aem.training.core.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,5 +36,26 @@ public class HttpClientAlfredo {
         return result;
     }
 
+    public static String getJsonCryptocurrencies (String url, String key) {
+
+        HttpRequest request = HttpRequest.newBuilder()
+                .GET()
+                .uri(URI.create(url))
+                .header("X-CMC_PRO_API_KEY", key)
+                .build();
+        CompletableFuture<HttpResponse<String>> response =
+                httpClient.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+        String result = null;
+        try {
+            result = response.thenApply(HttpResponse::body).get(5, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (TimeoutException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 
 }

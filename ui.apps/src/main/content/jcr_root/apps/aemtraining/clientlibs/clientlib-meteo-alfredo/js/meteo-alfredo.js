@@ -1,9 +1,6 @@
 // chiamata ajax jQuery
 console.log("meteoalfredo ajax richiamamta");
 
-// chiamata ajax jQuery
-console.log("meteoalfredo ajax richiamamta");
-
 var currentPath = window.location.pathname;
 var cleanUrl = currentPath.replace(".html", "/");
 console.log("clean url corrente ---->>		", cleanUrl);
@@ -11,7 +8,7 @@ console.log("clean url corrente ---->>		", cleanUrl);
 $(document).ready(function() {
     $.ajax({
 
-        url: '/content/aemtraining/us/en/meteoalfredo/jcr:content/root/container/container/meteo_alfredo.json',
+        url: cleanUrl + 'jcr:content/root/container/container/meteo_alfredo.json',
         // ovviamente questo url con javaScript possiamo calcolarlo con una funzione automatica
         dataType: "json",
         success: function(result) {
@@ -54,4 +51,28 @@ $(document).ready(function() {
                 return options.inverse(this);
         }
     });
+
+    // Traduttore custom giorni settimana da FE
+    Handlebars.registerHelper('translateDay', function(day) {
+
+        switch (day) {
+            case 'MONDAY':
+                return 'Luned&iacute';
+            case 'TUESDAY':
+                return 'Marted&iacute';
+            case 'WEDNESDAY':
+                return 'Mercoled&iacute';
+            case 'THURSDAY':
+                return 'Gioved&iacute';
+            case 'FRIDAY':
+                return 'Venerd&iacute';
+            case 'SATURDAY':
+                return 'Sabato';
+            default:
+                return 'Domenica';
+        }
+    });
+
+
+
 });

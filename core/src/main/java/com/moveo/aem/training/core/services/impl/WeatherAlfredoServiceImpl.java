@@ -6,7 +6,7 @@ import com.moveo.aem.training.core.services.WeatherAlfredoServiceDesegnate;
 import com.moveo.aem.training.core.beans.DailyWeatherAlfredoBean;
 import com.moveo.aem.training.core.beans.response.meteoalfredo.Daily;
 import com.moveo.aem.training.core.beans.response.meteoalfredo.DailyWeatherAlfredoResponse;
-import com.moveo.aem.training.core.utility.HttpClientAlfredo;
+import com.moveo.aem.training.core.utils.HttpClientAlfredo;
 import com.moveo.aem.training.core.utility.Utils;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
