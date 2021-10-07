@@ -1,9 +1,9 @@
-package com.moveo.aem.training.core.service_gezu.impl;
+package com.moveo.aem.training.core.services.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.moveo.aem.training.core.service_gezu.WeatherServiceGezu;
-import com.moveo.aem.training.core.service_gezu.WeatherServiceDesignate;
 import com.moveo.aem.training.core.services.WeatherServiceDesegnate;
+import com.moveo.aem.training.core.services.WeatherServiceDesignateGe;
+import com.moveo.aem.training.core.services.WeatherServiceGezu;
 import com.moveo.aem.training.core.beans.DailyWeatherBean;
 import com.moveo.aem.training.core.beans.response.weather.Daily;
 import com.moveo.aem.training.core.beans.response.weather.DailyWeatherResponse;
@@ -29,7 +29,7 @@ public class WeatherServiceGezuImpl implements WeatherServiceGezu {
 
 
     @Activate
-    protected void activate(final WeatherServiceDesignate config) {
+    protected void activate(final WeatherServiceDesignateGe config) {
 
         appKey = config.apiId();
     }
@@ -45,7 +45,6 @@ public class WeatherServiceGezuImpl implements WeatherServiceGezu {
         List<DailyWeatherBean> dailyWeatherBeanList = new ArrayList<DailyWeatherBean>();
 
         for (Daily dailyWeatherResp : dailyWeatherResponse.getDaily()){
-            // TODO: convertire epoch to Date
             DailyWeatherBean dailyWeatherBean = new DailyWeatherBean();
             LocalDateTime localdatetime=LocalDateTime.ofEpochSecond(dailyWeatherResp.getDt(),0, ZoneOffset.UTC);
             dailyWeatherBean.setDay(localdatetime.getDayOfWeek().toString());
