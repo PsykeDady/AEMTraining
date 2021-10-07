@@ -26,6 +26,7 @@ $(document).ready(function() {
         }
     });
 
+    // condition custom per Handlebars
     Handlebars.registerHelper('ifCond', function(v1, operator, v2, options) {
 
         switch (operator) {

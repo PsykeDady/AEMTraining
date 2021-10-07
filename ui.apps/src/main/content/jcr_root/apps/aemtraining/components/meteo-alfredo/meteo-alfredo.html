@@ -8,28 +8,70 @@
 
 
 <body>
-
-    <div id="meteoContainer"></div>
-    <script id="meteoTemplate" type="text/x-handlebars-template">
-        <div class="row">
-            {{#each dailyWeatherAlfredoBeanList}}
-
-            {{#ifCond @index '<' 4}}
-            <div class="col-sm-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{day}} treatment</h5>
-                        <img class="card-img-top" src="http://openweathermap.org/img/w/{{icon}}.png" alt="Card image cap">
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div id="meteoContainer" >
+        <script id="meteoTemplate" type="text/x-handlebars-template">
+            <div class="row">
+                {{#each dailyWeatherAlfredoBeanList}}
+                    {{#ifCond @index '<' 4}}
+                    <div class=" col-sm-3 ">
+                        <div class="card cellaSingola">
+                            <div class="card-body ">
+                                <h5 class="card-title titoloGiorno">{{day}} </h5>
+                                <img class="card-img-top " src="http://openweathermap.org/img/w/{{icon}}.png " alt="Card image cap ">
+                                <div class="row ">
+                                    <div class="col-md-6 ">
+                                        <h6 class="temperaturaMin ">Min</h6>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <h6 class="temperaturaMax ">Max</h6>
+                                    </div>
+                                </div>
+                                <div class="row ">
+                                    <div class="col-md-6 ">
+                                        <h6 class="temperaturaMin ">{{temperaturaMinima}} °</h6>
+                                    </div>
+                                    <div class="col-md-6 ">
+                                        <h6 class="temperaturaMax ">{{temperaturaMassima}} °</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    {{/ifCond}} {{/each}}
                 </div>
-            </div>
-            {{/ifCond}}
+                <br>
+                <div class="row ">
+                    {{#each dailyWeatherAlfredoBeanList}}
+                    {{#ifCond @index '>' 3}}
+                        <div class="col-sm-3 ">
+                            <div class="card cellaSingola">
+                                <div class="card-body ">
+                                    <h5 class="card-title titoloGiorno">{{day}} </h5>
+                                    <img class="card-img-top " src="http://openweathermap.org/img/w/{{icon}}.png " alt="Card image cap ">
+                                    <div class="row ">
+                                        <div class="col-md-6 ">
+                                            <h6 class="temperaturaMin ">Min</h6>
+                                        </div>
+                                        <div class="col-md-6 ">
+                                            <h6 class="temperaturaMax ">Max</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-md-6 ">
+                                            <h6 class="temperaturaMin ">{{temperaturaMinima}} °</h6>
+                                        </div>
+                                        <div class="col-md-6 ">
+                                            <h6 class="temperaturaMax ">{{temperaturaMassima}} °</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/ifCond}}
+                    {{/each}}
+                </div>
 
+        </script>
 
-            <br>
-            {{/each}}
         </div>
-      </div>
-</script>
+</body>
