@@ -1,4 +1,4 @@
-package com.moveo.aem.training.core.services.beans;
+package com.moveo.aem.training.core.beans;
 
 public class DailyWeatherAlfredoBean {
 

@@ -1,5 +1,5 @@
 
-package com.moveo.aem.training.core.services.beans.response.meteoalfredo;
+package com.moveo.aem.training.core.beans.response.meteoalfredo;
 
 import java.io.Serializable;
 import java.util.HashMap;

@@ -1,5 +1,5 @@
 
-package com.moveo.aem.training.core.services.beans.response.weather;
+package com.moveo.aem.training.core.beans.response.meteoalfredo;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -33,7 +33,7 @@ public class Weather implements Serializable
     private String icon;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-    private final static long serialVersionUID = 372021629994039939L;
+    private final static long serialVersionUID = 5523546781728380297L;
 
     @JsonProperty("id")
     public Integer getId() {

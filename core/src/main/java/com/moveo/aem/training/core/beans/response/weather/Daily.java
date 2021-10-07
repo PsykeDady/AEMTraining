@@ -1,5 +1,5 @@
 
-package com.moveo.aem.training.core.services.beans.response.weather;
+package com.moveo.aem.training.core.beans.response.weather;
 
 import java.io.Serializable;
 import java.util.HashMap;

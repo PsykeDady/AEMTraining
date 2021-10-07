@@ -1,4 +1,4 @@
-package com.moveo.aem.training.core.models.commerce;
+package com.moveo.aem.training.core.models;
 import static org.apache.sling.api.resource.ResourceResolver.PROPERTY_RESOURCE_TYPE;
 
 import javax.annotation.PostConstruct;
