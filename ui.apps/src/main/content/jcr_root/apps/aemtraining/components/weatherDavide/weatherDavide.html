@@ -1,20 +1,30 @@
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
     <sly data-sly-call="${clientlib.all @ categories='aemtraining-weatherdavide' }"</sly>
 </sly>
-<sly data-sly-use.model="com.moveo.aem.training.core.models.WeatherDavide">
-
+<sly data-sly-use.model="com.moveo.aem.training.core.models.WeatherDavide"></sly>
 
 		
-    <div id="psyke_meteo_box" data-sly-list.item="${model.dailyWeatherBeanList}">
+    <!-- <div id="psyke_meteo_box" data-sly-list.item="${model.dailyWeatherBeanList}">
         <div class="littlepicture" >
             <div class="lplabel" id="nomeg">${item.day}</div>
             <div class="lpimg"><img src="http://openweathermap.org/img/w/${item.icon}.png" alt=""></div>
             <div class="lplabel" id="maxmin">${item.tempMin}&#8451; - ${item.tempMax}&#8451;</div>
         </div>
-    </div>
-    <q id="weatherquote"> <i>
-        the only accurate weather forecast, were from yesterday
-    </i></q>
-</body>
+    </div> -->
+<div id="psyke_meteo_box">
+        <script id="weatherTemplate" type="text/x-handlebars-template">
+        {{#each dailyWeatherBeanList}}
+        <div class="littlepicture" >
+            <div class="lplabel" id="nomeg">{{day}}</div>
+            <div class="lpimg"><img src="http://openweathermap.org/img/w/{{icon}}.png" alt=""></div>
+            <div class="lplabel" id="maxmin">{{tempMin}}&#8451; - {{tempMax}}&#8451;</div>
+        </div>
+        {{/each}}
+    </script>
+</div>
 
-</sly>
+
+<q id="weatherquote"> <i>
+    the only accurate weather forecast, were from yesterday
+</i></q>
+

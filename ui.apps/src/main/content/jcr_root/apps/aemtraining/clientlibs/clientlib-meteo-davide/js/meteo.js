@@ -11,11 +11,11 @@ $(document).ready(function(){
         success: function(result){
             var htmlTemplate = $("#weatherTemplate").html();
             var template = Handlebars.compile(htmlTemplate);
-            $("#weatherContainer").html(template(result));
-            console.log("successo" + result);
+            $("#psyke_meteo_box").html(template(result));
+            console.log("successo", result);
         },
         error: function(error){
-            console.log("errore" + error);
+            console.log("errore", error);
         }
     });
 });
