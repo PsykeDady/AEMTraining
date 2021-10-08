@@ -1,62 +1,62 @@
-.flex-container {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    /* border: 1px solid silver; */
-    -ms-box-orient: horizontal;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: flex;
-}
+*{
+	--box-width:100vmin;
+	--box-heigth:90vmin;
+	--item-width:150px;
 
-.wrap {
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
-}
-.wrap li {
-    background: white;
-}
-
-.flex-item {
-    --width-size:180px;
-    --pad-size: calc(0.05vw);
-    --border-size: calc(0.01vw);
-    --font-size: calc(0.05wm);
-
-    width: var(--width-size);
-
-    border: var(--border-size) solid silver;
-    color: black;
-    font-weight: bold;
-    text-align: center;
-}
-
-#container{
-    background: white;
-    padding: 0;
-    margin: 0;
-    border: 1px solid red;
-}
-
-#span1{
-    margin-left: 100px;
-}
-
-#spanCitta{
-    color: red;
-
-}
-
-#spanTemp{
-    color: blue;
+	--shadow-width:0.2vmin;
+	--blur-width:0.8vmin;
+	--margin-width:1vmin;
+	--border-width:0.01vmin;
 }
 
 
-@media only screen and (max-width: 600px) {
-    #span1 {
-        margin-left: 0px;
-    }
+@keyframes slideIn {
+	100% { left: 0; }
+}
+
+
+#psyke_meteo_box{
+	width:  var(--box-width);
+	height: var(--box-s);
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	
+}
+
+#psyke_meteo_box:hidden, #psyke_meteo_box *:hidden{
+	transform: translateX(-100vw);
+}
+
+q#weatherquote{
+	margin: 0;
+	padding: 0;
+
+	text-align: center;	
+	font-size: var(--footer-font);
+	border-top: var(--border-width) black solid;
+}
+
+#psyke_meteo_box, #psyke_meteo_box * {
+	transition: all 1s cubic-bezier(1,0,0,1);
+	animation: slideIn 1s forwards;
+}
+
+.littlepicture{
+	width:  var(--item-width);
+	height: var(--item-width);
+	margin: var(--margin-width);
+	background-color: aliceblue;
+	box-shadow: 0px 0px var(--blur-width) var(--shadow-width) black;
+}
+
+.littlepicture > div {
+	text-align: center;
+}
+.littlepicture > .lpimg {
+	height: calc(var(--item-width)/2);
+}
+
+.littlepicture > .lplabel {
+	height: calc(var(--item-width)/4);
 }

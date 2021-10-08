@@ -67,7 +67,7 @@ public class WeatherServiceImpl implements WeatherService {
     private static String italianWeek(DayOfWeek day){
         switch (day){
             case MONDAY: return "Luned\u00ec";
-            case FRIDAY: return "Venderd\u00ec";
+            case FRIDAY: return "Venerd\u00ec";
             case SATURDAY: return "Sabato";
             case THURSDAY: return "Gioved\u00ec";
             case TUESDAY: return "Marted\u00ec";
