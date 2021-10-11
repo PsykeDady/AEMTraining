@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/intellij+all,visualstudiocode,eclipse,windows,osx,maven,linux
 # Edit at https://www.toptal.com/developers/gitignore?templates=intellij+all,visualstudiocode,eclipse,windows,osx,maven,linux
 
+# vscode
+.vscode
+
 ### Eclipse ###
 .metadata
 bin/

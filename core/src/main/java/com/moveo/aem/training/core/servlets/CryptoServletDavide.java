@@ -16,7 +16,7 @@
 package com.moveo.aem.training.core.servlets;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.moveo.aem.training.core.models.WeatherDavide;
+import com.moveo.aem.training.core.models.CryptoDavideModel;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.resource.Resource;
@@ -39,11 +39,11 @@ import java.io.IOException;
  */
 @Component(service = { Servlet.class })
 @SlingServletResourceTypes(
-        resourceTypes="aemtraining/components/weatherDavide",
+        resourceTypes="aemtraining/components/cryptoDavide",
         methods=HttpConstants.METHOD_GET,
         extensions="json")
-@ServiceDescription("Weather ")
-public class WeatherServletDavide extends SlingSafeMethodsServlet {
+@ServiceDescription("Crypto Tables")
+public class CryptoServletDavide extends SlingSafeMethodsServlet {
 
     private static final long serialVersionUID = 1L;
 
@@ -51,10 +51,10 @@ public class WeatherServletDavide extends SlingSafeMethodsServlet {
     protected void doGet(final SlingHttpServletRequest req,
             final SlingHttpServletResponse resp) throws ServletException, IOException {
         final Resource resource = req.getResource();
-        WeatherDavide weatherDavide = resource.adaptTo(WeatherDavide.class);
+        CryptoDavideModel cryptoDavideModel = resource.adaptTo(CryptoDavideModel.class);
         ObjectMapper objectMapper = new ObjectMapper();
-        String weatherModelJson= objectMapper.writeValueAsString(weatherDavide);
+        String cryptoModelJson= objectMapper.writeValueAsString(cryptoDavideModel);
         resp.setContentType("application/json");
-        resp.getWriter().write(weatherModelJson);
+        resp.getWriter().write(cryptoModelJson);
     }
 }

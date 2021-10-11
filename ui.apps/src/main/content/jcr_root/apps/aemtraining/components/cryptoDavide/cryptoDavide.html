@@ -1,0 +1,29 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='aemtraining-cryptodavide' }"></sly>
+</sly>
+	
+
+<table id="cryptoTable">
+    <thead> <tr>
+        <th>Valuta</th>
+        <th>&dollar;</th>
+        <th>&euro;</th>
+        <th>BTC</th>
+        <th>&UpArrowDownArrow; 24h</th>
+    </tr></thead>
+    <tbody id="cryptoBody">
+    <script id="cryptoTemplate" type="text/x-handlebars-template"> 
+        {{#each dati}}
+        <tr>
+            <td>{{name}}</th>
+            <td>{{price}}</th>
+            <td>{{price}}</th>
+            <td>{{price_btc}}</th>
+            <td>{{percent_change_24h}}</td>
+        </tr>
+        {{/each}}
+
+    </script>
+    </tbody>
+</table>
+
