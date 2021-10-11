@@ -1,92 +1,62 @@
 *{
-	--cw: 91vmin;
-	--cw-red: 90vmin;
-	--border-w:0.05vw;
+	--box-width:100vmin;
+	--box-heigth:90vmin;
+	--item-width:150px;
 
-	--ch:32vh;
-	--ch-red:29vh;
-
-	--footer-font: calc((var(--cw-red) + var(--ch-red) ) / 80);
-	--other-font: calc((var(--cw-red) + var(--ch-red) ) / 60);
+	--shadow-width:0.2vmin;
+	--blur-width:0.8vmin;
+	--margin-width:1vmin;
+	--border-width:0.01vmin;
 }
 
 
-#psyke_meteo{
-
-	width: var(--cw);
-	height: var(--ch);
-	border: var(--border-w) black solid;
+@keyframes slideIn {
+	100% { left: 0; }
 }
+
 
 #psyke_meteo_box{
-	--box-h:calc(var(--ch-red) * 85 / 100 );
-	overflow-x: scroll;
-	overflow-y: hidden;
+	width:  var(--box-width);
+	height: var(--box-s);
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	
+}
 
-	width: var(--cw-red);
-	height: var(--box-h);
+#psyke_meteo_box:hidden, #psyke_meteo_box *:hidden{
+	transform: translateX(-100vw);
+}
 
+q#weatherquote{
+	margin: 0;
+	padding: 0;
 
-	border-bottom: var(--border-w) black solid;
+	text-align: center;	
+	font-size: var(--footer-font);
+	border-top: var(--border-width) black solid;
+}
+
+#psyke_meteo_box, #psyke_meteo_box * {
+	transition: all 1s cubic-bezier(1,0,0,1);
+	animation: slideIn 1s forwards;
 }
 
 .littlepicture{
-	--litp-h:var(--box-h);
-	height: var(--litp-h);
-	width:var(--cw-red);
-} 
-
-.littlepicture th{
-	padding: 0%;
-	height: var(--litp-h);
-	width: calc(var(--cw-red) / 8);
-	border-right: var(--border-w) black solid;
-}
-.littlepicture th:last-child{
-	border-right: none;
+	width:  var(--item-width);
+	height: var(--item-width);
+	margin: var(--margin-width);
+	background-color: aliceblue;
+	box-shadow: 0px 0px var(--blur-width) var(--shadow-width) black;
 }
 
-.littlepicture th div div{
-	margin: 0;
-	padding: 0;
-
-	font-size: var(--other-font);
+.littlepicture > div {
+	text-align: center;
+}
+.littlepicture > .lpimg {
+	height: calc(var(--item-width)/2);
 }
 
-.littlepicture th div img{
-	height: calc(var(--litp-h) * 4 / 10 );
-}
-
-#nomeg{
-	height: calc(var(--litp-h) * 2 / 10 );	
-}
-
-#maxmin{
-	height: calc(var(--litp-h) * 2 / 10 );
-}
-
-
-#psyke_meteo q{
-	margin: 0;
-	padding: 0;
-
-	margin-left: 15%;
-	font-size: var(--footer-font);
-}
-
-
-*::-webkit-scrollbar{
-    width: var(--scroll-width);
-}
-*::-webkit-scrollbar-track{
-    background-color: var(--main-bg-color);
-}
-*::-webkit-scrollbar-thumb{
-    background-color: var(--secondary-light);
-}
-*::-webkit-scrollbar-track:hover{
-    background-color: var(--secondary-bg-color);
-}
-*::-webkit-scrollbar-thumb:hover{
-    background-color: var(--secondary-dark);
+.littlepicture > .lplabel {
+	height: calc(var(--item-width)/4);
 }

@@ -2,7 +2,7 @@ package com.moveo.aem.training.core.models;
 
 
 import com.moveo.aem.training.core.services.WeatherAlfredoService;
-import com.moveo.aem.training.core.services.beans.DailyWeatherAlfredoBean;
+import com.moveo.aem.training.core.beans.DailyWeatherAlfredoBean;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;

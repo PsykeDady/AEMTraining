@@ -1,22 +1,37 @@
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
-    <sly data-sly-call="${clientlib.all @ categories='aemtraining-weatherfrancesco' }"</sly>
+    <sly data-sly-call="${clientlib.all @ categories='aemtraining-weatherfrancesco' }"></sly>
 </sly>
 
-<sly data-sly-use.model="com.moveo.aem.training.core.models.WeatherFrancesco">
-    
-</sly>
-<div id="container" data-sly-list.item=${model.dailyWeatherBeanList}>
-    <sly  data-sly-test="${itemList.index==0}">
-        <img src="http://openweathermap.org/img/wn/${item.icon}.png" alt="">
-        <h2><span id="span1"> ${item.day} </span><span id="spanCitta">${properties.citta} </span><span id="spanTemp"> ${item.tempMin}&#8451  ${item.tempMax}&#8451</span></h2></sly>
+
+
+<sly data-sly-use.model="com.moveo.aem.training.core.models.WeatherFrancesco"></sly>
+
+<body>
+<div id="container">
+    <sly data-sly-list.item = ${model.dailyWeatherBeanList}>
+        <sly data-sly-test ="${itemList.index == 0}">
+            <p>${item.day}</p>
+            <img src="http://openweathermap.org/img/wn/${item.icon}.png">
+            <p>${item.tempMin}° ${item.tempMax}° </p>
+        </sly>
 
 </div>
 
 
+<div id="weatherContainer"></div>
+<script id="weatherTemplate" type="text/x-handlebars-template">
+    <ul class="flex-container wrap">
+        {{#each dailyWeatherBeanList}}
+        <li class="flex-item">
+            <p>{{day}}</p>
+            <img src="http://openweathermap.org/img/w/{{icon}}.png">
+            <p>{{tempMin}}° {{tempMax}}° </p>
+        </li>
+        {{/each}}
+    </ul>
+</script>
 
-<ul data-sly-list.weatheritem = ${model.dailyWeatherBeanList} class="flex-container wrap">
-
-    <li class="flex-item">${weatheritem.day}</br><img src="http://openweathermap.org/img/wn/${weatheritem.icon}.png" alt=""></br>${weatheritem.tempMin}&#8451 ;  ${weatheritem.tempMax}&#8451</li>
 
 
-</ul>
+
+</body>

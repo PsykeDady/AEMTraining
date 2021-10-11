@@ -1,12 +1,11 @@
 package com.moveo.aem.training.core.services.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.moveo.aem.training.core.schedulers.SimpleScheduledTask;
 import com.moveo.aem.training.core.services.WeatherServiceDesegnate;
-import com.moveo.aem.training.core.services.beans.DailyWeatherBean;
+import com.moveo.aem.training.core.beans.DailyWeatherBean;
 import com.moveo.aem.training.core.services.WeatherService;
-import com.moveo.aem.training.core.services.beans.response.weather.Daily;
-import com.moveo.aem.training.core.services.beans.response.weather.DailyWeatherResponse;
+import com.moveo.aem.training.core.beans.response.weather.Daily;
+import com.moveo.aem.training.core.beans.response.weather.DailyWeatherResponse;
 import com.moveo.aem.training.core.utils.HttpClientFrancesco;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -38,7 +37,7 @@ public class WeatherServiceImpl implements WeatherService {
     public List<DailyWeatherBean> getDailyForecast(String latitudine, String longitudine) throws Exception {
         logger.debug("entrato in WeatherServiceImpl");
 
-        String url = "https://api.openweathermap.org/data/2.5/onecall?lat="+latitudine+"&lon="+longitudine+"&lang=it&exclude=minutely,current,hourly,alerts&units=metric&appid="+appKey;
+           String url = "https://api.openweathermap.org/data/2.5/onecall?lat="+latitudine+"&lon="+longitudine+"&lang=it&exclude=minutely,current,hourly,alerts&units=metric&appid="+appKey;
 
         logger.info("URLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL" + url);
 
@@ -68,7 +67,7 @@ public class WeatherServiceImpl implements WeatherService {
     private static String italianWeek(DayOfWeek day){
         switch (day){
             case MONDAY: return "Luned\u00ec";
-            case FRIDAY: return "Venderd\u00ec";
+            case FRIDAY: return "Venerd\u00ec";
             case SATURDAY: return "Sabato";
             case THURSDAY: return "Gioved\u00ec";
             case TUESDAY: return "Marted\u00ec";

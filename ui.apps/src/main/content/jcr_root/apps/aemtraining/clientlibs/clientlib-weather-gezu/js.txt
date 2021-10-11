@@ -16,3 +16,6 @@
 
 #base=js
 weather-gezu.js
+handlebars.min-v4.7.7.js
+jquery-3.6.0.min.js
+handlebars-v4.7.7.js
