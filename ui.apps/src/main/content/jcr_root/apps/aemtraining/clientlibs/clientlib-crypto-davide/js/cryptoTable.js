@@ -2,7 +2,7 @@ console.log("CryptoDavAjax");
 var percorso = window.location.pathname
 percorso = percorso.split(".")[0]
 percorso=percorso+"/jcr:content/root/container/container/cryptodavide.json"
-debugger
+
 console.log("percorso=",percorso);
 $(document).ready(function(){
     $.ajax({
