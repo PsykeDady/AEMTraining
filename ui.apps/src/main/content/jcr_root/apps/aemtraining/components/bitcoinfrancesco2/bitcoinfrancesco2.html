@@ -1,0 +1,60 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='aemtraining-bootstrap' }"></sly>
+
+
+</sly>
+
+
+
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='aemtraining-bitcoinfrancesco2' }"></sly>
+
+
+</sly>
+
+
+
+<body>
+
+
+<ul class="flex-container wrap">
+
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">24h %</th>
+            <th scope="col">7d %</th>
+            <th scope="col">Max Supply</th>
+        </tr>
+        </thead>
+        <tbody id="bitcoinContainer2">
+        <script id="bitcoinTemplate2" type="text/x-handlebars-template">
+
+            {{#each bitcoinBean}}
+            <tr>
+                <td><b>{{symbol}}</b></td>
+                <td>{{price}}</td>
+                <td>{{percent_change_24h}}</td>
+                <td>{{percent_change_7d}}</td>
+                <td>{{max_supply}}</td>
+
+            </tr>
+            {{/each}}
+        </script>
+        </tbody>
+    </table>
+
+</ul>
+
+
+
+
+
+
+
+</body>

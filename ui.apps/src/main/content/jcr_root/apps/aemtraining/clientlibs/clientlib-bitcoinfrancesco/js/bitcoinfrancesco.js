@@ -10,9 +10,9 @@ $(document).ready(function (){
         url:bitcoinfrancesco_finalurl,
         dataType: "json",
         success: function(result){
-            var htmlTemplate = $("#weatherTemplate").html();
+            var htmlTemplate = $("#bitcoinTemplate").html();
             var template = Handlebars.compile(htmlTemplate);
-            $("#weatherContainer").html(template(result));
+            $("#bitcoinContainer").html(template(result));
             console.log("successo" + result);
         },
         error: function(error){
