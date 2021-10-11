@@ -1,12 +1,12 @@
 console.log("CryptoDavAjax");
-var percorso = window.location.pathname
-percorso = percorso.split(".")[0]
-percorso=percorso+"/jcr:content/root/container/container/cryptodavide.json"
+var percorsoCryptoTableDavide = window.location.pathname
+percorsoCryptoTableDavide = percorsoCryptoTableDavide.split(".")[0]
+percorsoCryptoTableDavide=percorsoCryptoTableDavide+"/jcr:content/root/container/container/cryptodavide.json"
 
-console.log("percorso=",percorso);
+console.log("percorsoCryptoTableDavide=",percorsoCryptoTableDavide);
 $(document).ready(function(){
     $.ajax({
-        url: percorso,
+        url: percorsoCryptoTableDavide,
         dataType: "json",
         success: function(result){
             var htmlTemplate = $("#cryptoTemplate").html();

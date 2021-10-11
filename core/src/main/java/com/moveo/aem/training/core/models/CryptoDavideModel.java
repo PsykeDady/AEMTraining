@@ -1,12 +1,14 @@
 package com.moveo.aem.training.core.models;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import com.moveo.aem.training.core.beans.bitcoin.davide.Cryptos;
-import com.moveo.aem.training.core.beans.bitcoin.davide.Root;
+import com.moveo.aem.training.core.beans.bitcoin.davide.Datum;
 import com.moveo.aem.training.core.services.CryptoServiceDavide;
 
-import org.apache.sling.installer.api.info.Resource;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 
@@ -16,7 +18,7 @@ public class CryptoDavideModel {
 	@OSGiService
 	private CryptoServiceDavide cryptoService;
 
-	private Root dati; 
+	private List<Datum> dati; 
 
 	@PostConstruct
 	protected void init(){
@@ -24,7 +26,7 @@ public class CryptoDavideModel {
 		dati=cryptoService.getCryptos(cryptos);
 	}
 
-	public Root getDati() {
+	public List<Datum> getDati() {
 		return dati;
 	}
 	
