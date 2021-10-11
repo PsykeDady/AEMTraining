@@ -1,0 +1,56 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='aemtraining-bootstrap' }"></sly>
+
+
+</sly>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='aemtraining-bitcoindom' }"></sly>
+
+
+</sly>
+
+
+
+
+
+
+<body>
+
+
+<script id="weatherTemplate" type="text/x-handlebars-template">
+    <ul class="flex-container wrap">
+        {{#each this}}
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">24h %</th>
+                <th scope="col">7d %</th>
+                <th scope="col">Max Supply</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">{{symbol}}</th>
+                <td>{{price}}</td>
+                <td>{{percent_change_24h}}</td>
+                <td>{{percent_change_7d}}</td>
+                <td>{{max_supply}}</td>
+
+            </tr>
+            </tbody>
+        </table>
+        {{/each}}
+    </ul>
+</script>
+<div id="weatherContainer"></div>
+
+
+
+
+
+
+</body>
