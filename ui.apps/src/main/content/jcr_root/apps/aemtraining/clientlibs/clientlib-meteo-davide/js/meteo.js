@@ -9,7 +9,7 @@ $(document).ready(function(){
         url: percorso,
         dataType: "json",
         success: function(result){
-            var htmlTemplate = $("#weatherTemplate").html();
+            var htmlTemplate = $("#weatherDavideTemplate").html();
             var template = Handlebars.compile(htmlTemplate);
             $("#psyke_meteo_box").html(template(result));
             console.log("successo", result);
