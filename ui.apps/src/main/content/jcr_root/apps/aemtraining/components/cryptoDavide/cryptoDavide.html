@@ -16,10 +16,10 @@
         {{#each dati}}
         <tr>
             <td>{{name}}</th>
-            <td>{{price}}</th>
-            <td>{{price}}</th>
+            <td>{{formatPrice price}}</th>
+            <td class="convertEuro">{{formatPrice price}}</th>
             <td>{{price_btc}}</th>
-            <td>{{percent_change_24h}}</td>
+            <td class="incrementClass">{{percent_change_24h}}</td>
         </tr>
         {{/each}}
 
