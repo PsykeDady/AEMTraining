@@ -2,9 +2,12 @@ package com.moveo.aem.training.core.beans.bitcoin.davide;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+@JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Datum{
+
     @JsonProperty("id") 
     public int getId() { 
 		 return this.id; } 

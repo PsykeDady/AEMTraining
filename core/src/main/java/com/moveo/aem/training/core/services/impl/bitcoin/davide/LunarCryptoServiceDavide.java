@@ -12,6 +12,8 @@ import com.moveo.aem.training.core.utils.NetUtils;
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.metatype.annotations.Designate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static com.moveo.aem.training.core.services.impl.bitcoin.davide.LunarCryptoConsts.URL;
 
@@ -25,6 +27,7 @@ import static com.moveo.aem.training.core.services.impl.bitcoin.davide.LunarCryp
 public class LunarCryptoServiceDavide implements CryptoServiceDavide {
 
 	private String appID;
+	private Logger logger = LoggerFactory.getLogger(LunarCryptoServiceDavide.class);
 
 	@Activate
 	protected void activate(final LunarCryptoApiKey config){
@@ -32,26 +35,28 @@ public class LunarCryptoServiceDavide implements CryptoServiceDavide {
 	}
 
 	@Override
-	public Root getCryptos(Cryptos... names) {
+	public List<Datum> getCryptos(Cryptos... names) {
 		StringBuilder urlB=new StringBuilder(URL);
 		for (Cryptos c : names) {
 			urlB.append(c.name()).append(',');
 		}
-		urlB.deleteCharAt(urlB.length());
+		urlB.deleteCharAt(urlB.length()-1);
 		String url=String.format(urlB.toString(),appID);
-		
+		logger.info(String.format("%n%nURL=%s%n%n", url));
+		logger.debug(String.format("%n%nURL=%s%n%n", url));
+		System.out.println(String.format("%n%nURL=%s%n%n", url));
 		String response ="{}";
 		try {response=NetUtils.executeGet(url);}
-		catch(Exception e){ return null;}
+		catch(Exception e){logger.error(e.getMessage()); return null;}
 		ObjectMapper om= new ObjectMapper();
 
 		Root r= null;
 		
 		try {r=om.readValue(response,Root.class);}
-		catch(Exception e){return null;}
+		catch(Exception e){logger.error(e.getMessage()); return null;}
 
 
-		return r;
+		return r.getData();
 	}
 
 	

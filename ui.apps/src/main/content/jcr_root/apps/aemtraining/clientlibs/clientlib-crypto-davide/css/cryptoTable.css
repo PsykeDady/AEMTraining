@@ -6,9 +6,12 @@
 		--dark-color : rgba(18, 0, 94, 1);
 		--secondary-colors: #000000;
 		--fg-colors : #ffffff;
+
+		--red-value: #f05545;
+		--green-value:#4c8c4a;
 	
 		/*FONT*/
-		--font-size :calc( (30vw + 100vh) / 40 );
+		--font-size :calc( (30vw + 100vh) / 70 );
 	
 		/*SHADOW*/
 		--blur-size : 2vmin;
