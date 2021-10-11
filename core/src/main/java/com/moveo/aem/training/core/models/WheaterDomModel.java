@@ -18,10 +18,10 @@ import java.util.List;
 public class WheaterDomModel {
 
     @ValueMapValue
-    private  static String longitudine;
+    private  static String longitudine="29.00";
 
     @ValueMapValue
-    private static String latitudine;
+    private static String latitudine="30.00";
 
     @OSGiService
     private WeatherService weatherService;
