@@ -4,7 +4,7 @@ console.log("weaterdomAjax");
 // url calcoliamo il path per l'url....
 $(document).ready(function(){
     $.ajax({
-        url: '/content/aemtraining/us/en/home/jcr:content/root/container/container/meteodom.json',
+        url: "/content/aemtraining/us/en/home/jcr:content/root/container/container/meteodom.json",
         dataType: "json",
         success: function(result){
             var htmlTemplate = $("#weatherTemplate").html();

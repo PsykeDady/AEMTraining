@@ -1,21 +1,21 @@
 console.log("WeatherDavAjax");
-var percorso = window.location.pathname
-percorso = percorso.split(".")[0]
-percorso=percorso+"/jcr:content/root/container/container/weatherdavide.json"
+var percorsoWeatherDavide = window.location.pathname
+percorsoWeatherDavide = percorsoWeatherDavide.split(".")[0]
+percorsoWeatherDavide=percorsoWeatherDavide+"/jcr:content/root/container/container/weatherdavide.json"
 
-console.log("percorso=",percorso);
+console.log("percorsoWeatherDavide=",percorsoWeatherDavide);
 $(document).ready(function(){
     $.ajax({
-        url: percorso,
+        url: percorsoWeatherDavide,
         dataType: "json",
         success: function(result){
-            var htmlTemplate = $("#weatherTemplate").html();
+            var htmlTemplate = $("#weatherDavideTemplate").html();
             var template = Handlebars.compile(htmlTemplate);
-            $("#weatherContainer").html(template(result));
-            console.log("successo" + result);
+            $("#psyke_meteo_box").html(template(result));
+            console.log("successo", result);
         },
         error: function(error){
-            console.log("errore" + error);
+            console.log("errore", error);
         }
     });
 });

@@ -3,31 +3,28 @@
 </sly>
 <sly data-sly-use.model="com.moveo.aem.training.core.models.WeatherDavide"></sly>
 
-<body>
-<div id="container">
-    <sly data-sly-list.item = ${model.dailyWeatherBeanList}>
-        <sly data-sly-test ="${itemList.index == 0}">
-            <p>${item.day}</p>
-            <img src="http://openweathermap.org/img/wn/${item.icon}.png">
-            <p>${item.tempMin}° ${item.tempMax}° </p>
-        </sly>
-
+		
+    <!-- <div id="psyke_meteo_box" data-sly-list.item="${model.dailyWeatherBeanList}">
+        <div class="littlepicture" >
+            <div class="lplabel" id="nomeg">${item.day}</div>
+            <div class="lpimg"><img src="http://openweathermap.org/img/w/${item.icon}.png" alt=""></div>
+            <div class="lplabel" id="maxmin">${item.tempMin}&#8451; - ${item.tempMax}&#8451;</div>
+        </div>
+    </div> -->
+<div id="psyke_meteo_box">
+        <script id="weatherDavideTemplate" type="text/x-handlebars-template">
+        {{#each dailyWeatherBeanList}}
+        <div class="littlepicture" >
+            <div class="lplabel" id="nomeg">{{day}}</div>
+            <div class="lpimg"><img src="http://openweathermap.org/img/w/{{icon}}.png" alt=""></div>
+            <div class="lplabel" id="maxmin">{{tempMin}}&#8451; - {{tempMax}}&#8451;</div>
+        </div>
+        {{/each}}
+    </script>
 </div>
 
 
-<div id="weatherContainer"></div>
-<script id="weatherTemplate" type="text/x-handlebars-template">
-    <ul class="flex-container wrap">
-        {{#each dailyWeatherBeanList}}
-        <li class="flex-item">
-            <p>{{day}}</p>
-            <img src="http://openweathermap.org/img/w/{{icon}}.png">
-            <p>{{tempMin}}° {{tempMax}}° </p>
-        </li>
-        {{/each}}
-    </ul>
-</script>
+<q id="weatherquote"> <i>
+    the only accurate weather forecast, were from yesterday
+</i></q>
 
-
-
-</body>

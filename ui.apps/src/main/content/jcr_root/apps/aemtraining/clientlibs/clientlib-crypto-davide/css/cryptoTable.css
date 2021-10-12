@@ -1,0 +1,72 @@
+
+#cryptoTable{
+		/*COLORS*/
+		--primary-color : rgba(74, 20, 140, 0.2);
+		--light-color :  rgba(124, 67, 189, 0.2);
+		--dark-color : rgba(18, 0, 94, 1);
+		--secondary-colors: #000000;
+		--fg-colors : #ffffff;
+
+		--red-value: #f05545;
+		--green-value:#4c8c4a;
+	
+		/*FONT*/
+		--font-size :calc( (30vw + 100vh) / 70 );
+	
+		/*SHADOW*/
+		--blur-size : 2vmin;
+	
+		--shadow-size: 0.1vmin;
+		--shadow-size-hover: 0.2vmin;
+	
+		/*BORDERS*/
+		--border-rad: 1vmin;
+		--line-w: 0.1vmin;
+	
+		/*MARGIN*/
+		--margin-size: 1vmin;
+	
+	
+		/* SELECTION */ 
+		-webkit-touch-callout: none; /* iOS Safari */
+		-webkit-user-select: none; /* Safari */
+		 -khtml-user-select: none; /* Konqueror HTML */
+		   -moz-user-select: none; /* Old versions of Firefox */
+			-ms-user-select: none; /* Internet Explorer/Edge */
+				user-select: none; /* Non-prefixed version, currently
+									  supported by Chrome, Edge, Opera and Firefox */
+
+
+    border-spacing: var(--margin-size);
+    border-collapse: separate;
+}
+
+#cryptoTable  thead tr th{
+	border-bottom: var(--line-w) solid var(--secondary-colors);
+	color: var(--dark-color);
+	font-size: var(--font-size);
+} 
+
+#cryptoTable tbody tr {
+	padding: var(--margin-size);
+}
+
+#cryptoTable tbody tr td {
+	border-radius: var(--border-rad);
+	background-color: var(--light-color);
+	box-shadow: 0 0 var(--blur-size) var(--shadow-size) var(--primary-color)  ;
+	padding: var(--margin-size);
+	color: var(--fg-colors);
+	font-weight: lighter;
+	text-align: center;
+	text-shadow: 0 0 var(--blur-size) var(--secondary-colors);
+	font-size: var(--font-size);
+}
+
+#cryptoTable tbody tr td:hover{
+	box-shadow: 0 0 var(--blur-size) var(--shadow-size) var(--dark-color)  ;
+}
+
+#cryptoTable  thead tr th:hover {
+	text-shadow: 0 0 var(--blur-size) var(--primary-color);
+}
