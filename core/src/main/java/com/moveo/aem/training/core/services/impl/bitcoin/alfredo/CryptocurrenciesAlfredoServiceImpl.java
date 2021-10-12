@@ -43,7 +43,7 @@ public class CryptocurrenciesAlfredoServiceImpl implements CryptocurrenciesAlfre
         ObjectMapper mapper = new ObjectMapper();
         CryptocurrenciesResponse cryptocurrenciesResponse = mapper.readValue(responce, CryptocurrenciesResponse.class);
 
-        List<CryptocurrenciesAlfredoBean> cryptocurrenciesAlfredoBeanList = new ArrayList<>();
+        List<CryptocurrenciesAlfredoBean> cryptocurrenciesAlfredoBeanList = new ArrayList<CryptocurrenciesAlfredoBean>();
         for(Datum resp: cryptocurrenciesResponse.getData()){
 
             CryptocurrenciesAlfredoBean cryptocurrenciesAlfredoBean = new CryptocurrenciesAlfredoBean();

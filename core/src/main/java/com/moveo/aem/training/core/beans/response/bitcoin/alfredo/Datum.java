@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class Datum {
 
     @JsonProperty("id")
-    private Integer id;
+    private Long id;
     @JsonProperty("name")
     private String name;
     @JsonProperty("symbol")
@@ -41,21 +41,21 @@ public class Datum {
     @JsonProperty("slug")
     private String slug;
     @JsonProperty("num_market_pairs")
-    private Integer numMarketPairs;
+    private Long numMarketPairs;
     @JsonProperty("date_added")
     private String dateAdded;
     @JsonProperty("tags")
     private List<String> tags = null;
     @JsonProperty("max_supply")
-    private Integer maxSupply;
+    private Long maxSupply;
     @JsonProperty("circulating_supply")
-    private Integer circulatingSupply;
+    private Long circulatingSupply;
     @JsonProperty("total_supply")
-    private Integer totalSupply;
+    private Long totalSupply;
     @JsonProperty("platform")
     private Object platform;
     @JsonProperty("cmc_rank")
-    private Integer cmcRank;
+    private Long cmcRank;
     @JsonProperty("last_updated")
     private String lastUpdated;
     @JsonProperty("quote")
@@ -64,12 +64,12 @@ public class Datum {
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("id")
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
     @JsonProperty("id")
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -104,12 +104,12 @@ public class Datum {
     }
 
     @JsonProperty("num_market_pairs")
-    public Integer getNumMarketPairs() {
+    public Long getNumMarketPairs() {
         return numMarketPairs;
     }
 
     @JsonProperty("num_market_pairs")
-    public void setNumMarketPairs(Integer numMarketPairs) {
+    public void setNumMarketPairs(Long numMarketPairs) {
         this.numMarketPairs = numMarketPairs;
     }
 
@@ -134,32 +134,32 @@ public class Datum {
     }
 
     @JsonProperty("max_supply")
-    public Integer getMaxSupply() {
+    public Long getMaxSupply() {
         return maxSupply;
     }
 
     @JsonProperty("max_supply")
-    public void setMaxSupply(Integer maxSupply) {
+    public void setMaxSupply(Long maxSupply) {
         this.maxSupply = maxSupply;
     }
 
     @JsonProperty("circulating_supply")
-    public Integer getCirculatingSupply() {
+    public Long getCirculatingSupply() {
         return circulatingSupply;
     }
 
     @JsonProperty("circulating_supply")
-    public void setCirculatingSupply(Integer circulatingSupply) {
+    public void setCirculatingSupply(Long circulatingSupply) {
         this.circulatingSupply = circulatingSupply;
     }
 
     @JsonProperty("total_supply")
-    public Integer getTotalSupply() {
+    public Long getTotalSupply() {
         return totalSupply;
     }
 
     @JsonProperty("total_supply")
-    public void setTotalSupply(Integer totalSupply) {
+    public void setTotalSupply(Long totalSupply) {
         this.totalSupply = totalSupply;
     }
 
@@ -174,12 +174,12 @@ public class Datum {
     }
 
     @JsonProperty("cmc_rank")
-    public Integer getCmcRank() {
+    public Long getCmcRank() {
         return cmcRank;
     }
 
     @JsonProperty("cmc_rank")
-    public void setCmcRank(Integer cmcRank) {
+    public void setCmcRank(Long cmcRank) {
         this.cmcRank = cmcRank;
     }
 
@@ -216,7 +216,7 @@ public class Datum {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(Datum.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
+        sb.append(Datum.class.getName()).append('@').append(Long.toHexString(System.identityHashCode(this))).append('[');
         sb.append("id");
         sb.append('=');
         sb.append(((this.id == null)?"<null>":this.id));
