@@ -13,9 +13,34 @@
     <div id="cryptoContainer" >
         <script id="cryptoTemplate" type="text/x-handlebars-template">
             <div class="row">
-                {{#each cryptocurrenciesAlfredoBeanList}}
-                    {{nome}}
-                {{/each}}
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Logo</th>
+                        <th scope="col">Sigla</th>
+                        <th scope="col">Prezzo</th>
+                        <th scope="col">Ultimo <br> aggiornamento</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                        {{#each cryptocurrenciesAlfredoBeanList}}
+                            <tr>
+                                <td>{{id}}</td>
+                                <td>{{nome}}</td>
+                                <td><img src="{{logo}}"></td>
+                                <td>{{sigla}}</td>
+                                <td>{{prezzoUsd}}</td>
+                                <td>{{dataUltimoAggiornamento}}</td>
+
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
             </div>
 
         </script>
